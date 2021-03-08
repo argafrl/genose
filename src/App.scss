@@ -1,0 +1,54 @@
+$hitam-color: #29282F;
+$biruTua-color: #07468B;
+$biruPrimary-color: #0B56A7;
+$kuningSecondary-color: #F18203;
+$kuningSecondaryHover-color: #ff8a05;
+$kuningMuda-color: #FFB561;
+$abu-color: #ABB8C5;
+$putih-color: #F3F3F3;
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import "~bootstrap/scss/bootstrap";
+
+* {
+  margin:0;
+  padding:0;
+  
+}
+  
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+    @media only screen and (max-width:56.25em){
+        font-size: 50%;
+    } 
+    @media only screen and (max-width:37.5em){
+        font-size: 43.75%;
+    } 
+}
+body {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  color: #222;
+  line-height: 1.6;
+  background-color: white;
+  min-height:100vh;
+  width:100%;
+}
+
+.title{
+  text-align: left;
+  margin-bottom: 60px;
+  h2{
+    font-size: 46px;
+  }
+  p{
+    font-size: 16px;
+    color: $abu-color;
+  }
+}

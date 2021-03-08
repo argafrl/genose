@@ -1,0 +1,98 @@
+@import "../App.scss";
+
+.Navbar{
+    background-color: $biruTua-color;
+    h2{
+        color: $putih-color;
+        font-family: 'Gotham';
+        font-weight: 600;
+        font-size: 46px;
+    }
+    padding: 0px 100px;
+    .navlink{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: $putih-color;
+        text-decoration: none;
+    }
+  }
+
+.block{
+    height: 550px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .content{
+        color: $putih-color;
+        padding: 115px;
+        text-align: left;
+        h2{
+            font-family: 'Gotham';
+            font-weight: 600;
+            font-size: 46px;
+            margin-bottom: 25px;
+        }
+        p{
+            margin-bottom: 45px;
+        }
+        .tombol{
+            background-color: $kuningSecondary-color;
+            color: $putih-color;
+            padding: 15px 100px;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: 0.3s;
+            &:hover {
+                //transform: scale(1.01);
+                box-shadow: 0px 0px 19px -3px $kuningSecondaryHover-color;
+                color: white;
+                background-color: $kuningSecondaryHover-color;
+            }
+        }
+    } 
+}
+
+.atas{
+    background-color: $biruPrimary-color;
+}
+
+.bawah{
+    background-color: $putih-color;
+    .content{
+        color: $biruPrimary-color;
+        p{
+            color: $hitam-color;
+        }
+    } 
+}
+
+.bawah-putih{
+    background-color: white;
+}
+
+.atasKanan{
+    height: 550px;
+    background-image: url('../assets/image/home_genose.png');
+    background-size:cover;
+    .overlay{
+        background-color: $biruTua-color;
+        background-size: cover;
+        height: 100%;
+        opacity: 0.3;
+        background-blend-mode: multiply;
+    }
+}
+
+.footer{
+    font-family: 'Gotham';
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: $biruPrimary-color;
+    height: 200px;
+    padding-top: 25px;
+    color: $putih-color;
+}

@@ -1,0 +1,39 @@
+@import "../App.scss";
+
+.wrapper-box{
+    border-radius: 10px;
+    background-color: white;
+    padding: 30px 20px 30px 20px;
+    box-shadow: 0px 0px 11px -2px rgba(0,0,0,0.2);
+    margin-bottom: 20px;
+    h3{
+        font-family: 'Gotham';
+        font-weight: 600;
+        font-size: 30px;
+        color: $biruPrimary-color;
+        margin-bottom: 20px;
+    }
+    .detail-pemesanan{
+        padding: 0 280px 0 280px;
+        margin-top: 15px;
+        .kiri{
+            text-align: left;
+        }
+        .kanan{
+            text-align: right;
+            color: $kuningSecondary-color;
+        }
+    }
+    .detail-border-atas{
+        border-bottom: 1px solid $abu-color;
+        margin-bottom: 30px;
+    }
+    .detail-pemesanan-border{
+        border-bottom: 1px solid $abu-color;
+    }
+    .detail-lokasi{
+        p{
+            margin-left: 9px;
+        }
+    }
+}

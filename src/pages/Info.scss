@@ -1,0 +1,32 @@
+@import "../App.scss";
+
+.body{
+    background-color: $putih-color;
+    min-height: 100vh;
+    .container-body{
+        padding-top: 60px;
+        padding-bottom: 60px;
+        padding-left: 115px;
+        padding-right: 115px;
+        margin: auto;
+        h2{
+            font-family: 'Gotham';
+            font-weight: 600;
+            font-size: 46px;
+            color: $biruPrimary-color;
+            margin-bottom: 60px;
+            text-align: center;
+        }
+        .accordion-wrapper{
+            .accordion{
+                border-radius: 10px;
+                margin-bottom: 20px;
+                box-shadow: none;
+                .accordionSummary{
+                    background-color: $kuningSecondary-color;
+                    border-radius: 10px;
+                }
+            }
+        }
+    }
+}

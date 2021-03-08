@@ -1,0 +1,57 @@
+@import "Login.scss";
+
+.tanggal-judul{
+    margin: 10px 0 10px 0;
+    color: $biruPrimary-color;
+    font-size: 13px;
+}
+
+.boxKanan{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .carousel{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .content-carousel{
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: left;
+            color: $putih-color;
+            padding: 100px;
+            text-align: left;
+            h2{
+                font-family: 'Gotham';
+                font-weight: 600;
+                font-size: 46px;
+                align-self: flex-start;
+            }
+            p{
+                margin-bottom: 0px;
+            }
+            .lingkaran{ 
+                // background-color: $biruTua-color;
+                // border-radius: 30% 70% 70% 30% / 30% 33% 67% 70% ;
+                img{
+                    margin: auto;
+                    width: 95%;
+                }
+            }
+        }
+        .carousel-indicators{
+            display: none;
+        }
+    }  
+}
+
+.boxKiri-signup{
+    padding: 115px 115px 115px 115px;
+}
+
+.tanggal-wrapper{
+    margin-top: 10px;
+}
