@@ -19,24 +19,14 @@ const Hasil = () => {
     const [hasil, setHasil] = useState('');
     const [berlaku, setBerlaku] = useState('');
     const { authTokens } = useAuth();
+    const [dataGenose, setDataGenose] = useState('');
         
     useEffect(async () => {
-        
-        // setTanggalLahir(res.data.tanggalLahir);
-        // setStasiunAwal(res.data.stasiunAwal);
-        // setJamBerangkat(res.data.jamBerangkat);
-        // setStasiunTujuan(res.data.stasiunTujuan);
-        // setJamSampai(res.data.jamSampai);
-        // console.log(res);
-        // console.log(authTokens);
         const resGenose = await genose.get(`user/get-user`,{
             headers: {jwtoken: authTokens}
         });     
         setKodeTiket(resGenose.data.data.tiket_user);
-        console.log(kodeTiket)
-        const res = await tiket.get(`show/${kodeTiket}`);
-        console.log(res);
-        setNama(res.data.nama);
+        // console.log(kodeTiket)      
         setJadwalTes(moment(resGenose.data.data.jadwal_tes).format('LL'));
         setLokasi(resGenose.data.data.tempat_tes);
         if (resGenose.data.data.hasil_tes === 'Negatif'){
@@ -44,8 +34,25 @@ const Hasil = () => {
         } else {
             setHasil('Positif')
         }
-        console.log(resGenose.data);
+        setDataGenose(resGenose);
+        // if(resGenose.data.data){
+            
+        // }
+        // console.log(resGenose.data);
     },[])
+
+    useEffect(async () => {
+        // const res = await tiket.get(`show/${kodeTiket}`);
+        // console.log(res);
+        // setNama(res.data.nama);
+        const res = async () => {
+            await tiket.get(`show/${kodeTiket}`)
+            .then((response) => setNama(response.data.nama))
+            // .then((data) => setNama(data.nama))
+        }
+        res();
+    },[dataGenose])
+
     return (
         <div className="hasil">
             <GlobalNavbar />

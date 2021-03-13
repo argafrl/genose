@@ -13,7 +13,6 @@ const Home = () => {
     const [hasil, setHasil] = useState('');
     const [showHasil, setShowHasil] = useState(false);
     const [showHasilRedirect, setShowHasilRedirect] = useState(false);
-    const [showBody, setShowBody] = useState(false);
 
     const [open, setOpen] = useState(false);
 
@@ -26,16 +25,15 @@ const Home = () => {
     };
 
     useEffect(async () => {
-        console.log(authTokens);
+        // console.log(authTokens);
         const resGenose = await genose.get(`user/get-user`,{
             headers: {jwtoken: authTokens}
         });
-        console.log(authTokens);
+        // console.log(authTokens);
         const hasilTes = resGenose.data.data.hasil_tes;
-        setHasil(hasilTes);
+        setHasil(resGenose.data.data.hasil_tes);
         if (hasilTes === 'Positif' || hasilTes === 'Negatif'){
             setShowHasil(true);
-            setShowBody(true);
         }
     },[])
 
