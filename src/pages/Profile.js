@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import genose from '../api/genose';
 import GlobalNavbar from '../component/GlobalNavbar';
@@ -24,8 +23,6 @@ const Profile = () => {
     const [openSnack, setOpenSnack] = useState(false);
     const [openSnackPasswordBerhasil, setOpenSnackPasswordBerhasil] = useState(false);
     const [openSnackPassword, setOpenSnackPassword] = useState(false);
-    // const [severity, setSeverity] = useState('error');
-    // const [openLoading, setOpenLoading] = useState(true);
     const handleEdit= async(e) =>{
         e.preventDefault()
         await genose.put("user/edit-user",{
@@ -71,8 +68,6 @@ const Profile = () => {
                 setOpenSnackPasswordBerhasil(true);
                 setGantiPassword(false);
             }).catch(err => {
-                // if(err.message === "\"password\" length must be at least 8 characters long"){  
-                // }
                 setOpenSnackPassword(true);
             })
         }
@@ -126,9 +121,6 @@ const Profile = () => {
                             <DetailProfile onChange={(e) => setNama(e.target.value)} title="Nama" atr ="name" value={ Nama } />
                             <DetailProfile onChange={setTanggalLahir} title="Tanggal Lahir" atr ="tanggal" value={ TanggalLahir }/>
                             <DetailProfile onChange={(e) => setEmail(e.target.value)} title="Email" atr ="email" value={ Email }/>
-                            {/* <div className="signup-wrapper">
-                                <Link onClick={handleClickOpen}>Ubah Password</Link>
-                            </div> */}
                             <div className="tombol-wrapper">
                                 <form onSubmit={handleEdit}>               
                                 <button className="tombol hasil" type="submit">Simpan</button>
@@ -136,9 +128,6 @@ const Profile = () => {
                                 <button className="tombol hasil kiri" onClick={handleClickOpen}>Ubah Password</button>
                                
                             </div>
-                            {/* <div className="tombol-wrapper">
-                                
-                            </div> */} 
                             <Dialog
                                 fullWidth
                                 maxWidth='md'

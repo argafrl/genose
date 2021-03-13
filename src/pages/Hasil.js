@@ -35,20 +35,12 @@ const Hasil = () => {
             setHasil('Positif')
         }
         setDataGenose(resGenose);
-        // if(resGenose.data.data){
-            
-        // }
-        // console.log(resGenose.data);
     },[])
 
     useEffect(async () => {
-        // const res = await tiket.get(`show/${kodeTiket}`);
-        // console.log(res);
-        // setNama(res.data.nama);
         const res = async () => {
             await tiket.get(`show/${kodeTiket}`)
             .then((response) => setNama(response.data.nama))
-            // .then((data) => setNama(data.nama))
         }
         res();
     },[dataGenose])

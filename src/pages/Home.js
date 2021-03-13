@@ -15,11 +15,7 @@ const Home = () => {
     const [showHasilRedirect, setShowHasilRedirect] = useState(false);
 
     const [open, setOpen] = useState(false);
-
-    const handleClickOpen = () => {
-        setOpen(true);
-    };
-
+    
     const handleClose = () => {
         setOpen(false);
     };
@@ -29,7 +25,6 @@ const Home = () => {
         const resGenose = await genose.get(`user/get-user`,{
             headers: {jwtoken: authTokens}
         });
-        // console.log(authTokens);
         const hasilTes = resGenose.data.data.hasil_tes;
         setHasil(resGenose.data.data.hasil_tes);
         if (hasilTes === 'Positif' || hasilTes === 'Negatif'){
@@ -61,10 +56,7 @@ const Home = () => {
                     <Grid item xs={6} square className="block atas">
                         <div className="content" id="info">
                             <h2>Informasi Seputar Genose</h2>
-                            <p>GeNose merupakan syarat wajib bagi penumpang kereta api sebagai salah satu alternatif alat yang dapat mendeteksi virus Covid-19 dengan harga yang lebih terjangkau. Untuk saat ini, GeNose hanya dioperasikan di beberapa stasiun di pulau Jawa.</p>  
-                            {/* <Link to="/info" class="tombol selengkapnya">
-                                Selengkapnya
-                            </Link> */}
+                            <p>GeNose merupakan syarat wajib bagi penumpang kereta api sebagai salah satu alternatif alat yang dapat mendeteksi virus Covid-19 dengan harga yang lebih terjangkau. Untuk saat ini, GeNose hanya dioperasikan di beberapa stasiun di pulau Jawa.</p>
                             <Link to="/info">
                                 <button className="tombol hasil">Selengkapnya</button>
                             </Link>
@@ -78,9 +70,7 @@ const Home = () => {
                         <form onSubmit={handleHasil}>
                         <h2>Lihat Hasil Pemeriksaan GeNose</h2>
                         <p>Anda harus melakukan pemriksaan jadwal terlebih dahulu sebelum mendapatkan hasil pemeriksaan. Untuk melakukan pemeriksaan, anda bisa mengatur lokasi dan jadwal pada fitur atur jadwal. Hasil pemeriksaan yang akan anda diterima adalah hasil pemeriksaan digital.</p>
-                        {/* <a class="tombol hasil" href="/">Lihat Hasil</a> */}
                         <button className="tombol hasil" type="submit">Lihat Hasil</button>
-                        {/* <Link to="/hasil" class="tombol hasil">Lihat Hasil</Link> */}
                         </form>
                         <Dialog
                             fullWidth
@@ -95,9 +85,6 @@ const Home = () => {
                                 <h2>Anda belum melakukan pemeriksaan</h2>
                             </DialogTitle>
                             <DialogActions className="action">
-                            {/* <Button onClick={handleClose} color="primary">
-                                Kembali
-                            </Button> */}
                             <button onClick={handleClose} className="tombolDialog">Kembali</button>
                             </DialogActions>
                         </Dialog>
@@ -107,9 +94,6 @@ const Home = () => {
                     <div className="content" id="jadwal">
                         <h2>Atur Jadwal Pemeriksaan GeNose</h2>
                         <p>Di dalam fitur ini anda dapat menetapkan lokasi dan jadwal pemeriksaan sesuai dengan keinginan anda. Setiap jam pada setiap harinya memiliki maksimal kapasitas pemeriksa agar tidak terjadinya kerumunan.</p>
-                        {/* <a class="tombol hasil" href="/">Atur Jadwal</a> */}
-                        {/* <Link to="/jadwal" class="tombol jadwal">
-                        Atur Jadwal</Link> */}
                         <Link to="/jadwal">
                             <button className="tombol hasil">Atur Jadwal</button>
                         </Link>

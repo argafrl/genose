@@ -31,7 +31,6 @@ const Jadwal = () => {
     const [stasiunTujuan, setStasiunTujuan] = useState('');
     const [jamSampai, setJamSampai] = useState('');
     const { authTokens } = useAuth();
-    // const [periksa, setPeriksa] = useState('');
     const [jamPeriksa, setJamPeriksa] = useState('');
     const gabungPeriksa = moment(selectedDate).format('YYYY-MM-DD') + jamPeriksa;
     const [jamDataPeriksa, setJamDataPeriksa] = useState('');
@@ -149,43 +148,6 @@ const Jadwal = () => {
             console.log(err);
         })
     }
-
-    // const handleParseJamPeriksa = (data) => {
-    //     const [parseJarakJamPeriksa, parseJamPeriksa] = data.split('T');  
-    //     setJarakDataPeriksa(parseJarakJamPeriksa);
-    //     setJamDataPeriksa(parseJamPeriksa);
-    // }
-
-    // useEffect(async () => {
-    //     // const res = await tiket.get(`show/6038b0e7bef03d0020ed2946`);
-        
-    //     // setId(res.data._id);
-    //     // setNama(res.data.nama);
-    //     // setTanggalLahir(res.data.tanggalLahir);
-    //     // setStasiunAwal(res.data.stasiunAwal);
-    //     // setJamBerangkat(res.data.jamBerangkat);
-    //     // setStasiunTujuan(res.data.stasiunTujuan);
-    //     // setJamSampai(res.data.jamSampai);
-    //     // console.log(res);
-    //     console.log(authTokens);
-    //     const resGenose = await genose.get(`user/get-user`,{
-    //         headers: {jwtoken: authTokens}
-    //     });
-    //     setTanggalLahir(resGenose.data.tanggal_lahir);
-    //     console.log(resGenose.data);
-    //     setShowTiket(true);
-    // },[])
-
-    // const handleLocationChangeMultiple = (event) => {
-    //     const { options } = event.target;
-    //     const value = [];
-    //     for (let i = 0, l = options.length; i < l; i += 1) {
-    //       if (options[i].selected) {
-    //         value.push(options[i].value);
-    //       }
-    //     }
-    //     setLocation(value);
-    // };
     return (
         <div className="jadwal">
             <GlobalNavbar />
@@ -214,14 +176,6 @@ const Jadwal = () => {
                         </div>
                         <div className="wrapper-box" style={{ display: showTiket ? "block" : "none" }}>
                             <h3>Detail Pemesanan Tiket</h3>
-                            {/* <p>{selectedDate.toString()}</p> */}
-                            {/* <p>{ moment(selectedDate).format('YYYY-MM-DD') }</p>
-                            <p>{periksa}</p>
-                            <p>{gabungPeriksa}</p>
-                            <p>{location}</p> */}
-                            {/* <p>{jarakDataPeriksa}</p>
-                            <p>{jamDataPeriksa}</p>
-                            {console.log(jamPeriksa)} */}
                             <p>{jamDataPeriksa}</p>
                             <div className="detail-border-atas" />
                             <div style={{ display: showDetail ? "block" : "none" }}>
@@ -344,9 +298,6 @@ const Jadwal = () => {
                                     <button className="tombol" type="submit">Oke</button>
                                 </div>
                             </Link>
-                            {/* <Link to="/info">
-                                <button className="tombol hasil">Selengkapnya</button>
-                            </Link> */}
                             </div>
                         </div>
                     </div>}
