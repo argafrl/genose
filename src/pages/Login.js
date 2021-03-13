@@ -1,15 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Box, FormControlLabel, Grid, TextField, Paper, Checkbox, InputAdornment} from '@material-ui/core';
 import '../pages/Login.scss';
 import {Redirect} from "react-router-dom";
 import { Link } from 'react-router-dom';
 import {useAuth} from "../config/Auth";
-import KELUARGA from '../assets/image/keluarga1.png';
-import { Carousel } from 'react-bootstrap';
 import AlternateEmailIcon from '@material-ui/icons/AlternateEmail';
 import LockOpenIcon from '@material-ui/icons/LockOpen';
-import axios from 'axios';
 import genose from '../api/genose';
+import MainCarousel from '../component/MainCarousel';
 
 const Login = () => {
     const [Email, setEmail] = useState("");
@@ -20,11 +18,14 @@ const Login = () => {
     const handleLogin= async(e) =>{
         e.preventDefault()
         await genose.post("/user/login",{
-          email:Email,
-          password:Password
+            email:Email,
+            password:Password
       }).then((res) => {
-          res.status === 200 && setAuthTokens(res.data.data.access_token)
-          setLoggedIn(true)
+            res.status === 200 && setAuthTokens(res.data.data.jwtoken)
+            setLoggedIn(true)
+            console.log(res);
+      }).catch(err => {
+            console.log(err);
       })
       }
     
@@ -34,10 +35,11 @@ const Login = () => {
         
     return (
         <div className="login">
-            <div className="globalStyles">
+            <div className="pattern">
                 <Grid container spacing={0}>
                 <Grid item xs={6} component={Paper} square className="boxKiri">
                     <Box
+                    onSubmit={handleLogin}
                     sx={{
                     my: 8,
                     mx: 4,
@@ -52,7 +54,6 @@ const Login = () => {
                         </div>          
                         <Box
                         component="form"
-                        onSubmit={handleLogin}
                         noValidate
                         sx={{
                             width: '100%', // Fix IE11 issue.
@@ -105,24 +106,25 @@ const Login = () => {
                                 label="Remember me"
                             />
                             <div className="forgot">
-                                <Link href="#" variant="body2">
-                                Forgot password?
+                                <Link to="/lupapass" variant="body2">
+                                Lupa Password?
                                 </Link>
                             </div>
                             {/* <a class="btn-masuk" href="/">Masuk</a> */}
-                            <Link to="/" className="btn-masuk" type="submit">
+                            <button className="btn-masuk" type="submit">
                                 Masuk
-                            </Link>
+                            </button>
                             <div className="signup">
                                 <Link to="/signup">
                                 Belum punya akun? Daftar
                                 </Link>
                             </div>
-                        </Box>
+                        </Box>                  
                     </Box>
                 </Grid>
                 <Grid item xs={6} className="boxKanan" >
-                    <div className="pattern">
+                    <MainCarousel />
+                    {/* <div className="pattern">
                     <Carousel className="carousel" indicators='false'>
                         <Carousel.Item>
                             <div className="content-carousel">
@@ -137,8 +139,14 @@ const Login = () => {
                         </Carousel.Item>
                         <Carousel.Item>
                             <div className="content-carousel">
+                                <h2>Apa itu GeNose?</h2>
+                                <p>GeNose merupakan syarat wajib bagi penumpang kereta api sebagai salah satu alternatif alat yang dapat mendeteksi virus Covid-19 dengan harga yang lebih terjangkau. Untuk saat ini, GeNose hanya dioperasikan di beberapa stasiun di pulau Jawa. </p>
+                            </div>
+                        </Carousel.Item>
+                        <Carousel.Item>
+                            <div className="content-carousel">
                                 <h2>Kenapa sih harus pakai GeNose?</h2>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis lacinia eget tincidunt ac. Tortor urna, tortor eleifend orci, aliquam quis facilisis. Felis vitae aenean aliquet curabitur. Nulla maecenas mollis non at est rutrum sapien, faucibus. Egestas massa lacus donec et pellentesque nam tincidunt. Diam, eleifend volutpat ullamcorper varius massa. Velit nulla vel quis ultrices morbi.</p>
+                                <p>Kelebihan pemeriksaan GeNose C19 selain murah, tidak sakit untuk digunakan. GeNose sendiri juga merupakan buatan anak bangsa. Jadi tunggu apa lagi ayo daftar!</p>
                                 <Link to="/signup" className="btn-masuk">
                                     Daftar
                                 </Link>
@@ -146,12 +154,12 @@ const Login = () => {
                         </Carousel.Item>
                         <Carousel.Item>
                             <div className="content-carousel">
-                                <h2>Apa itu GeNose?</h2>
-                                <p>GeNose merupakan syarat wajib bagi penumpang kereta api sebagai salah satu alternatif alat yang dapat mendeteksi virus Covid-19 dengan harga yang lebih terjangkau. Untuk saat ini, GeNose hanya dioperasikan di beberapa stasiun di pulau Jawa. </p>
+                                <h2>Prosedur Pemeriksaan GeNose?</h2>
+                                <p>1. Saat pemeriksaan, calon penumpang akan diminta untuk mengambil napas melalui hidung dan membuangnya melalui mulut sebanyak 3 kali<br/><br/>2. Langkah tersebut terdiri dari 2 kali di awal ambil napas dan buang di dalam masker, kemudian saat pengambilan napas ke-3 langsung embuskan ke dalam kantong hingga penuh<br/><br/>3. Kunci kantong agar udara di dalamnya tidak keluar dan serahkan kantong kepada petugas untuk dianalisis menggunakan alat GeNose<br/><br/>4. Pemeriksaan dilakukan 1 kali tanpa pengulangan</p>
                             </div>
                         </Carousel.Item>
                     </Carousel>
-                    </div>
+                    </div> */}
                 </Grid>
                 </Grid>
             </div>

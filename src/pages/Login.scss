@@ -24,6 +24,11 @@ $putih-color: #F3F3F3;
 .login{
     background-color: $biruPrimary-color;
     min-height: 100vh;
+    .pattern{
+      background-image: url('../assets/image/pattern.png');
+      background-size: cover;
+      background-position: 50% 50%;
+    }
 }
 
 html {
@@ -45,15 +50,15 @@ body {
 }
 
 .boxKanan{
-  background-color: $biruPrimary-color;
+  // background-color: $biruPrimary-color;
   height: 100vh;
   // display: flex;
   // justify-content: center;
   // align-items: center;
-  .pattern{
-    background-image: url('../assets/image/pattern.png');
-    background-size: cover;
-    height: 100%;
+  .main-carousel{
+    // background-image: url('../assets/image/pattern.png');
+    // background-size: cover;
+    // min-height: 100%;
     a{
       text-decoration: none;
       &:hover {
@@ -93,10 +98,10 @@ body {
 .forgot{
   float: right;
   margin-top: 10px;
+  margin-bottom: 35px;
 }
 
 .btn-masuk{
-  margin-top: 40px;
   display: block;
   padding-top: 20px;
   padding-bottom: 20px;
@@ -112,14 +117,18 @@ body {
   transition: 0.3s;
   &:hover {
     //transform: scale(1.01);
-    box-shadow: 0px 0px 19px -3px $kuningSecondaryHover-color;
+    box-shadow: 0px 0px 15px -6px $kuningSecondaryHover-color;
     color: white;
     background-color: $kuningSecondaryHover-color;
   }
 }
 
+.btn-carousel{
+  margin-top: 30px;
+}
+
 .signup{
-  margin-top: 50px;
+  margin-top: 30px;
   text-align: center;
 }
 

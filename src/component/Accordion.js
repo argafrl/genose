@@ -16,7 +16,7 @@ const AccordionInfo = (props) => {
                     <Typography>{summary}</Typography>
                 </AccordionSummary>
                 <AccordionDetails className="accordionDetails">
-                    <Typography>
+                    <Typography style={{whiteSpace: 'pre-line', paddingRight: '5px'}}>
                     {details}
                     </Typography>
                 </AccordionDetails>

@@ -1,32 +1,57 @@
 import React, { useState } from 'react';
-import { Box, Grid, TextField, Paper, Checkbox, InputAdornment} from '@material-ui/core';
+import { Box, Grid, TextField, Paper, InputAdornment} from '@material-ui/core';
 import {
     MuiPickersUtilsProvider,
-    KeyboardTimePicker,
-    KeyboardDatePicker,
     DatePicker
   } from '@material-ui/pickers';
 import DateFnsUtils from '@date-io/date-fns';
 import '../pages/Login.scss';
 import '../pages/Signup.scss';
-import { Link } from 'react-router-dom';
-import { Carousel } from 'react-bootstrap';
-import KELUARGA from '../assets/image/keluarga1.png';
+import { Link, Redirect } from 'react-router-dom';
 import AlternateEmailIcon from '@material-ui/icons/AlternateEmail';
 import LockOpenIcon from '@material-ui/icons/LockOpen';
 import EventIcon from '@material-ui/icons/Event';
+import { useAuth } from "../config/Auth";
+import genose from "../api/genose";
+import MainCarousel from '../component/MainCarousel';
 
 const Signup = () => {
     const [selectedDate, handleDateChange] = useState(new Date());
-    const [selectedMonth, handleMonthChange] = useState(new Date());
-    const [selectedYear, handleYearChange] = useState(new Date());
+    
+    const [Nama, setNama] = useState("");
+    const [Email, setEmail] = useState("");
+    const [Password, setPassword] = useState("");
+    const {setAuthTokens} = useAuth();
+    const [isLoggedIn, setLoggedIn] = useState(false);
+
+    const handleSignup = async(e) => {
+        e.preventDefault();
+        await genose.post("/user/register", {
+            nama:  Nama,
+            email: Email,
+            tanggal_lahir: selectedDate,
+            password: Password
+        })
+        await genose.post("/user/login", {
+            email: Email,
+            password: Password
+        }).then((res) => {
+            res.status === 200 && setAuthTokens(res.data.data.access_token);
+            setLoggedIn(true);
+        })
+    }
+
+    if(isLoggedIn){
+        return <Redirect to={"/"} />
+    }
 
     return (
         <div className="login">
-            <div className="globalStyles">
+            <div className="pattern">
                 <Grid container spacing={0}>
                 <Grid item xs={6} component={Paper} square className="boxKiri boxKiri-signup">
                 <Box
+                    onSubmit={handleSignup}
                     sx={{
                     my: 8,
                     mx: 4,
@@ -69,6 +94,7 @@ const Signup = () => {
                             endAdornment: <InputAdornment position="start"><AlternateEmailIcon className="textfield-icon" /></InputAdornment>,
                         }}
                         className="textfield"
+                        onChange={(e) => setNama(e.target.value)}
                     />
                     <TextField
                         margin="normal"
@@ -88,6 +114,7 @@ const Signup = () => {
                             endAdornment: <InputAdornment position="start"><AlternateEmailIcon className="textfield-icon" /></InputAdornment>,
                         }}
                         className="textfield"
+                        onChange={(e) => setEmail(e.target.value)}
                     />
                     <TextField
                         margin="normal"
@@ -108,51 +135,10 @@ const Signup = () => {
                             endAdornment: <InputAdornment position="start"><LockOpenIcon className="textfield-icon" /></InputAdornment>,
                         }}
                         className="textfield"
+                        onChange={(e) => setPassword(e.target.value)}
                     />
                     {/* <p className="tanggal-judul">Masukkan Tanggal Lahir</p> */}
                     <Grid container spacing={1} className="tanggal-wrapper">
-                        {/* <Grid item className="tanggal">
-                            <MuiPickersUtilsProvider utils={DateFnsUtils}>
-                                <DatePicker
-                                    disableToolbar
-                                    label="Hari"
-                                    value={selectedDate}
-                                    onChange={handleDateChange}
-                                    inputVariant="outlined"
-                                    focused
-                                    InputLabelProps={{
-                                        shrink: true,
-                                    }}
-                                    style={{float:"left", maxWidth: "130px"}}
-                                />
-                            </MuiPickersUtilsProvider>
-                        </Grid>
-                        <Grid item className="tanggal">
-                            <MuiPickersUtilsProvider utils={DateFnsUtils}>
-                               <DatePicker
-                                    views={["month"]}
-                                    label="Bulan"
-                                    value={selectedMonth}
-                                    onChange={handleMonthChange}
-                                    inputVariant="outlined"
-                                    focused
-                                    style={{maxWidth: "276px"}}
-                                />
-                            </MuiPickersUtilsProvider>
-                        </Grid>
-                        <Grid item className="tanggal">
-                            <MuiPickersUtilsProvider utils={DateFnsUtils}>
-                               <DatePicker
-                                    views={["year"]}
-                                    label="Tahun"
-                                    value={selectedYear}
-                                    onChange={handleYearChange}
-                                    inputVariant="outlined"
-                                    focused
-                                    style={{maxWidth: "130px"}}
-                                />
-                            </MuiPickersUtilsProvider>
-                        </Grid> */}
                         <MuiPickersUtilsProvider utils={DateFnsUtils}>
                         <DatePicker
                             disableFuture
@@ -171,48 +157,20 @@ const Signup = () => {
                         />
                         </MuiPickersUtilsProvider>
                     </Grid>
-                    <Link to="/" className="btn-masuk">
+                    <button className="btn-masuk btn-daftar" type="submit">
                         Daftar
-                    </Link>
+                    </button>
                     <div className="signup">
                         <Link to="/login">
                             Kembali ke Login
                         </Link>
+                        {/* <p>{ moment(selectedDate).format('LL') }</p> */}
                     </div>
                     </Box>
                 </Box>
                 </Grid>
                 <Grid item xs={6} className="boxKanan" >
-                <div className="pattern">
-                    <Carousel className="carousel" indicators='false'>
-                        <Carousel.Item>
-                            <div className="content-carousel">
-                                <div className="lingkaran">
-                                    <img
-                                    className="d-block"
-                                    src={KELUARGA}
-                                    alt="First slide"
-                                    />
-                                </div>                          
-                            </div>                 
-                        </Carousel.Item>
-                        <Carousel.Item>
-                            <div className="content-carousel">
-                                <h2>Kenapa sih harus pakai GeNose?</h2>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis lacinia eget tincidunt ac. Tortor urna, tortor eleifend orci, aliquam quis facilisis. Felis vitae aenean aliquet curabitur. Nulla maecenas mollis non at est rutrum sapien, faucibus. Egestas massa lacus donec et pellentesque nam tincidunt. Diam, eleifend volutpat ullamcorper varius massa. Velit nulla vel quis ultrices morbi.</p>
-                                <Link to="/signup" className="btn-masuk">
-                                    Daftar
-                                </Link>
-                            </div>
-                        </Carousel.Item>
-                        <Carousel.Item>
-                            <div className="content-carousel">
-                                <h2>Apa itu GeNose?</h2>
-                                <p>GeNose merupakan syarat wajib bagi penumpang kereta api sebagai salah satu alternatif alat yang dapat mendeteksi virus Covid-19 dengan harga yang lebih terjangkau. Untuk saat ini, GeNose hanya dioperasikan di beberapa stasiun di pulau Jawa. </p>
-                            </div>
-                        </Carousel.Item>
-                    </Carousel>
-                </div>
+                <MainCarousel />
                 </Grid>
                 </Grid>
             </div>

@@ -1,0 +1,58 @@
+@import "../App.scss";
+
+.circularTengah{
+    margin-top: 200px;
+    display: flex;
+    justify-content: center;
+}
+.detail-profile{
+    margin-top: 0px;
+    padding: 60px 130px 50px 130px;
+}
+.border-profile{
+    margin-top: 30px;
+}
+.detail-profile-grid{
+    margin-bottom: 30px;
+}
+.signup-wrapper{
+    margin: 15px 0 0 0;
+    display: flex;
+    flex-direction: row-reverse;
+    a{
+        text-decoration: none;
+        &:hover {
+          text-decoration: none;
+        }
+      }
+}
+
+.wrapper-dialog{
+    padding: 0 50px;
+}
+
+.title-dialog{
+    background-color: $biruPrimary-color !important;
+    h2{
+        color: $putih-color !important;
+        margin: 10px 0;
+    }
+}
+
+.tombolUbahPassword{
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 25px;
+    margin-right: 25px;
+    .batal{
+        margin-right: 20px;
+    }
+}
+
+.tombol-wrapper{
+    margin-bottom: 0px;
+    .kiri{
+        margin-right: 30px;
+    }
+}
+

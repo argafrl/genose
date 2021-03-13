@@ -1,0 +1,34 @@
+@import '../App.scss';
+
+.biru-admin{
+    background-color: $biruPrimary-color;
+    margin-bottom: 20px !important;
+    .biru-h3-admin{
+        text-align: left !important;
+        color: $putih-color !important;
+        margin-bottom: 0 !important;
+        margin-top: 10px;
+    }
+    .hasil{
+        color: $kuningSecondary-color;
+    }
+}
+
+.tombol-pertanyaan{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    margin: 0 auto;
+    color: $putih-color;
+    .tombol{
+        color: $putih-color;
+        margin-top: 0px;
+        margin-left: 20px;
+    }
+}
+
+.tombol-hasil-pemeriksaan{
+    .tombol{
+        margin-top: 0px;
+    }
+}

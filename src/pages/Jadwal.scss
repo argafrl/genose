@@ -13,7 +13,11 @@
         color: $biruPrimary-color;
         margin-bottom: 20px;
     }
-    .detail-pemesanan{
+    .kodeTiket{
+        text-align: center;
+        margin-bottom: 0px;
+    }
+    .detail-pemesanan-border{
         padding: 0 280px 0 280px;
         margin-top: 15px;
         .kiri{
@@ -24,16 +28,93 @@
             color: $kuningSecondary-color;
         }
     }
+    .detail-lokasi-jadwal{
+        padding: 0 280px 0 280px;
+        margin-bottom: 0px;
+        .tombol-wrapper{
+            display: flex;
+            justify-content: center;
+            
+        }
+    }
     .detail-border-atas{
         border-bottom: 1px solid $abu-color;
         margin-bottom: 30px;
     }
-    .detail-pemesanan-border{
+    .detail-border-bawah{
+        margin-top: 30px;
+        border-top: 1px solid $abu-color;
+    }
+    .detail-border{
         border-bottom: 1px solid $abu-color;
     }
     .detail-lokasi{
         p{
             margin-left: 9px;
+        }
+    }
+    .grid-lokasi-jadwal{
+        border-right: 1px solid $abu-color;
+        display: flex;
+        justify-content: center;
+        .judul{
+            color: $kuningSecondary-color;
+        }
+    }
+    .tanpa-grid{
+        border: none;
+    }
+}
+
+.biru{
+    background-color: $biruPrimary-color;
+    .biru-h3{
+        text-align: center;
+        color: $putih-color !important;
+        margin-bottom: 0 !important;
+    }
+    .hasil{
+        color: $kuningSecondary-color;
+    }
+}
+
+
+
+.tombol{
+    &:hover {
+        //transform: scale(1.01);
+        text-decoration: none !important;
+    }
+}
+
+.tombol-wrapper{
+    display: flex;
+    // justify-content: center;
+    flex-direction: row-reverse;
+    .tombol{
+        background-color: $kuningSecondary-color;
+        color: $putih-color;
+        padding: 15px 60px;
+        text-decoration: none;
+        border-radius: 50px;
+        border: none;
+        transition: 0.3s;
+        margin-top: 25px;
+        &:hover {
+            //transform: scale(1.01);
+            box-shadow: 0px 0px 15px -6px $kuningSecondaryHover-color;
+            color: white;
+            background-color: $kuningSecondaryHover-color;
+        }
+    }
+    .tipis{
+        background-color: $putih-color;
+        color: $biruPrimary-color;
+        border: 2px solid $biruPrimary-color;
+        &:hover{
+            box-shadow: 0px 0px 15px -6px $biruPrimary-color;
+            background-color: $biruPrimary-color;
+            color: $putih-color;
         }
     }
 }

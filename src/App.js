@@ -8,12 +8,16 @@ import Home from './pages/Home';
 import Info from './pages/Info';
 import Jadwal from './pages/Jadwal';
 import Hasil from './pages/Hasil';
+import Profile from './pages/Profile';
+import LupaPass from './pages/LupaPass';
 import './App.scss';
+import Admin from './pages/Admin';
 
 function App() {
 
   const existingToken = JSON.parse(localStorage.getItem("tokens"));
   const [authTokens, setAuthTokens] = useState(existingToken);
+  const [jadwalGlobal, setJadwalGlobal] = useState(false);
 
   const setTokens = (data) => {
     localStorage.setItem("tokens", JSON.stringify(data))
@@ -31,7 +35,10 @@ function App() {
         <Route exact path="/info" component={Info} />
         <Route exact path="/jadwal" component={Jadwal} />
         <Route exact path="/hasil" component={Hasil} />
-        <Route exact path="/" component={Home} />
+        <Route exact path="/profile" component={Profile} />
+        <Route exact path="/lupapass" component={LupaPass} />
+        <Route exact path="/admin" component={Admin} />
+        <PrivateRoute exact path="/" component={Home} />
         </Switch>
     </Router>
     </AuthContext.Provider>

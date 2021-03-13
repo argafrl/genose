@@ -7,6 +7,9 @@
         font-family: 'Gotham';
         font-weight: 600;
         font-size: 46px;
+        &:hover{
+            color: white;
+        }
     }
     padding: 0px 100px;
     .navlink{
@@ -15,8 +18,21 @@
         align-items: center;
         color: $putih-color;
         text-decoration: none;
+        &:hover{
+            color: white;
+        }
     }
+    
   }
+
+.menuItem{
+    text-decoration: none !important;
+    color: black !important;
+    &:hover{
+        text-decoration: none !important;
+        color: black !important;
+    }
+}
 
 .block{
     height: 550px;
@@ -42,16 +58,59 @@
             padding: 15px 100px;
             text-decoration: none;
             border-radius: 50px;
+            border: none;
             transition: 0.3s;
             &:hover {
                 //transform: scale(1.01);
-                box-shadow: 0px 0px 19px -3px $kuningSecondaryHover-color;
+                box-shadow: 0px 0px 15px -6px $kuningSecondaryHover-color;
                 color: white;
                 background-color: $kuningSecondaryHover-color;
             }
         }
     } 
 }
+.dialog{
+    h2{
+        text-align: center;
+        font-family: 'Gotham';
+        font-weight: 600;
+        font-size: 30px;
+        color: $biruPrimary-color;
+        margin: 20px 0px 0px 0px;
+    }
+    .action{
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        .tombolDialog{
+            background-color: $kuningSecondary-color;
+            color: $putih-color;
+            padding: 7px 60px;
+            text-decoration: none;
+            border-radius: 50px;
+            border: none;
+            transition: 0.3s;
+            margin-bottom: 30px;
+            &:hover {
+                //transform: scale(1.01);
+                box-shadow: 0px 0px 15px -6px $kuningSecondaryHover-color;
+                color: white;
+                background-color: $kuningSecondaryHover-color;
+            }
+        }
+    }  
+}
+
+
+// .hasil{
+//     border: none !important;
+//     text-decoration: none !important;
+//     color: $putih-color !important;
+//     .tombol-link{
+//         text-decoration: none;
+//         color: $putih-color;
+//     }
+// }
 
 .atas{
     background-color: $biruPrimary-color;
@@ -84,15 +143,20 @@
     }
 }
 
-.footer{
-    font-family: 'Gotham';
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+.footer-background{
     background-color: $biruPrimary-color;
-    height: 200px;
-    padding-top: 25px;
-    color: $putih-color;
+    .footer{
+        font-family: 'Gotham';
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        background-image: url('../assets/image/PatternFooter.png');
+        background-size: cover;
+        height: 200px;
+        padding-top: 25px;
+        color: $putih-color;
+    }
 }
+
