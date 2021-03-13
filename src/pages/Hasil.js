@@ -19,6 +19,7 @@ const Hasil = () => {
     const [hasil, setHasil] = useState('');
     const [berlaku, setBerlaku] = useState('');
     const { authTokens } = useAuth();
+        
     useEffect(async () => {
         
         // setTanggalLahir(res.data.tanggalLahir);
@@ -30,9 +31,12 @@ const Hasil = () => {
         // console.log(authTokens);
         const resGenose = await genose.get(`user/get-user`,{
             headers: {jwtoken: authTokens}
-        });
+        });     
         setKodeTiket(resGenose.data.data.tiket_user);
-        setNama(resGenose.data.data.nama);
+        console.log(kodeTiket)
+        const res = await tiket.get(`show/${kodeTiket}`);
+        console.log(res);
+        setNama(res.data.nama);
         setJadwalTes(moment(resGenose.data.data.jadwal_tes).format('LL'));
         setLokasi(resGenose.data.data.tempat_tes);
         if (resGenose.data.data.hasil_tes === 'Negatif'){
@@ -40,10 +44,6 @@ const Hasil = () => {
         } else {
             setHasil('Positif')
         }
-        const res = await tiket.get(`show/${kodeTiket}`);
-        // setId(res.data._id);
-        setNama(res.data.nama);  
-        // setBerlaku(resGenose.data.data.tempat_tes);
         console.log(resGenose.data);
     },[])
     return (

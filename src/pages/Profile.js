@@ -121,7 +121,7 @@ const Profile = () => {
                     {Nama === '' && <div className="circularTengah"><CircularProgress color="primary" /> </div>}
                     {Nama !== '' && <div className="wrapper">
                         <div className="wrapper-box detail-profile">
-                            <form onSubmit={handleEdit}>
+                            
                             <div className="detail-border-atas" />
                             <DetailProfile onChange={(e) => setNama(e.target.value)} title="Nama" atr ="name" value={ Nama } />
                             <DetailProfile onChange={setTanggalLahir} title="Tanggal Lahir" atr ="tanggal" value={ TanggalLahir }/>
@@ -129,14 +129,16 @@ const Profile = () => {
                             {/* <div className="signup-wrapper">
                                 <Link onClick={handleClickOpen}>Ubah Password</Link>
                             </div> */}
-                            <div className="tombol-wrapper">               
+                            <div className="tombol-wrapper">
+                                <form onSubmit={handleEdit}>               
                                 <button className="tombol hasil" type="submit">Simpan</button>
+                                </form>
                                 <button className="tombol hasil kiri" onClick={handleClickOpen}>Ubah Password</button>
+                               
                             </div>
                             {/* <div className="tombol-wrapper">
                                 
-                            </div> */}
-                            </form>  
+                            </div> */} 
                             <Dialog
                                 fullWidth
                                 maxWidth='md'
@@ -146,7 +148,7 @@ const Profile = () => {
                                 aria-describedby="alert-dialog-description"
                                 className="dialog"
                             >
-                                <form onSubmit={handleEditPassword}>
+                                
                                 <DialogTitle id="alert-dialog-title" className="title-dialog">
                                     <h2>Ubah Password</h2>
                                 </DialogTitle>
@@ -162,12 +164,13 @@ const Profile = () => {
                                     <div className="tombol-wrapper batal">
                                         <button className="tombol tipis" onClick={handleClose}>Batal</button>
                                     </div>
+                                    <form onSubmit={handleEditPassword}>
                                     <div className="tombol-wrapper">
                                         <button className="tombol" type="submit">Simpan</button>
                                     </div>
+                                    </form>
                                 </div>
                                 </DialogActions>
-                                </form>
                                 <Snackbar open={openSnackPasswordBerhasil} autoHideDuration={6000} onClose={handleCloseSnackPasswordBerhasil}>
                                     <Alert onClose={handleCloseSnackPasswordBerhasil} severity={"success"}>
                                         Password berhasil diubah!

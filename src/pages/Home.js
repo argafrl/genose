@@ -58,7 +58,7 @@ const Home = () => {
         <div className="Home">
             <HomeNavbar />
             {hasil === '' && <div className="circularTengah"><CircularProgress color="primary" /> </div>}
-            {hasil && <div className="Body">
+            {hasil !== '' && <div className="Body">
                 <Grid container spacing={0}>
                     <Grid item xs={6} square className="block atas">
                         <div className="content" id="info">
@@ -79,7 +79,7 @@ const Home = () => {
                     <div className="content" id="hasil">
                         <form onSubmit={handleHasil}>
                         <h2>Lihat Hasil Pemeriksaan GeNose</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Imperdiet a odio volutpat posuere nulla eget pharetra, tincidunt. Ut pellentesque accumsan sed gravida vitae massa massa ut. Consectetur cras suspendisse eget neque.</p>
+                        <p>Anda harus melakukan pemriksaan jadwal terlebih dahulu sebelum mendapatkan hasil pemeriksaan. Untuk melakukan pemeriksaan, anda bisa mengatur lokasi dan jadwal pada fitur atur jadwal. Hasil pemeriksaan yang akan anda diterima adalah hasil pemeriksaan digital.</p>
                         {/* <a class="tombol hasil" href="/">Lihat Hasil</a> */}
                         <button className="tombol hasil" type="submit">Lihat Hasil</button>
                         {/* <Link to="/hasil" class="tombol hasil">Lihat Hasil</Link> */}
@@ -108,7 +108,7 @@ const Home = () => {
                     <Grid item xs={6} square className="block bawah bawah-putih">
                     <div className="content" id="jadwal">
                         <h2>Atur Jadwal Pemeriksaan GeNose</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Imperdiet a odio volutpat posuere nulla eget pharetra, tincidunt. Ut pellentesque accumsan sed gravida vitae massa massa ut. Consectetur cras suspendisse eget neque.</p>
+                        <p>Di dalam fitur ini anda dapat menetapkan lokasi dan jadwal pemeriksaan sesuai dengan keinginan anda. Setiap jam pada setiap harinya memiliki maksimal kapasitas pemeriksa agar tidak terjadinya kerumunan.</p>
                         {/* <a class="tombol hasil" href="/">Atur Jadwal</a> */}
                         {/* <Link to="/jadwal" class="tombol jadwal">
                         Atur Jadwal</Link> */}
