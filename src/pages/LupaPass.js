@@ -4,7 +4,8 @@ import { Link } from 'react-router-dom';
 import AlternateEmailIcon from '@material-ui/icons/AlternateEmail';
 import { useAuth } from "../config/Auth";
 import genose from "../api/genose";
-import './LupaPass.scss'
+import './LupaPass.scss';
+import './Signup.scss';
 import MainCarousel from '../component/MainCarousel';
 
 const LupaPass = () => {
@@ -26,8 +27,8 @@ const LupaPass = () => {
     }
 
     return (
-        <div className="lupa-pass">
-            <div className="globalStyles">
+        <div className="login">
+            <div className="pattern">
                 <Grid container spacing={0}>
                 <Grid item xs={6} component={Paper} square className="boxKiri boxKiri-signup">
                 <Box
