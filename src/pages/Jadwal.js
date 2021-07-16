@@ -176,7 +176,7 @@ const Jadwal = () => {
                         </div>
                         <div className="wrapper-box" style={{ display: showTiket ? "block" : "none" }}>
                             <h3>Detail Pemesanan Tiket</h3>
-                            <p>{jamDataPeriksa}</p>
+                            {/* <p>{jamDataPeriksa}</p> */}
                             <div className="detail-border-atas" />
                             <div style={{ display: showDetail ? "block" : "none" }}>
                                 <DetailPemesanan title="Kode Pemesanan Tiket" content={id} />
